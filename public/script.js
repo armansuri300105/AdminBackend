@@ -19,7 +19,7 @@ if (logoutButton) {
         const result = await response.json();
         if (response.ok) {
             alert(result.message);
-            window.location.href = 'http://localhost:4173/login.html';
+            window.location.href = 'https://adminfrontend-6dt4.onrender.com/login.html';
         } else {
             alert('Logout failed');
         }
