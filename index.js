@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 
 app.use(cors({
-    origin: ['http://localhost:4173', 'http://localhost:3000'],
+    origin: ['https://adminfrontend-6dt4.onrender.com', 'https://adminbackend-447g.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
