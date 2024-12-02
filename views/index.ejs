@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Pannel</title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Soulmate Admin pannel</h1>
+        <p class="logoutbtn">Logout</p>
+    </div>
+    <div class="products"><h2>Orders</h2></div>
+        <% data %>
+        <% if (data.length == 0){ %>
+            <div class="empty"><h1>No Orders Available</h1></div>
+        <% }else {%>
+        <% data.forEach(item => { %>
+        <div class="user-detail-container">
+            <div class="username"><h1>User - <%= item.Name %></h1></div>
+            <div class="user-detail">
+                <p class="name"><%= item.Name %></p>
+                <p class="email"><%= item.Email %></p>
+                <p class="mobile"><%= item.Number %></p>
+                <p class="address"><%= item.Address %></p>
+                <p class="zip"><%= item.Zipcode %></p>
+                <p class="area"><%= item.Area %></p>
+                <p class="landmark"><%= item.LandMark %></p>
+                <p class="city"><%= item.City %></p>
+                <p class="state"><%= item.State %></p>
+            </div>
+        </div>
+        <div class="item-list">
+            <% item.products.forEach(product => { %>
+                <div class="item-box">
+                    <div class="item-image-box"><img src="<%= product.ProductImage %>" alt=""></div>
+                    <h3><%= product.ProductName %></h3>
+                    <p>Quantity - <%= product.ProductQuantity %></p>
+                    <p>Total Cost - ₹<%= product.ProductTotalCost %></p>
+                </div>
+            <% }) %>
+        </div>
+        <% }) %>
+        <% } %>
+        <script src="script.js"></script>
+</body>
+</html>
