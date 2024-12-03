@@ -18,11 +18,12 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({ id: checkuser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.cookie('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
-            maxAge: 3600000
-        });
+        httpOnly: true,
+        secure: req.secure || process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // 'None' for cross-origin
+        maxAge: 3600000 // 1 hour
+    });
+
 
         res.json({ message: "Login successful" });
     } catch (error) {
