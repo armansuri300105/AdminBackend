@@ -105,3 +105,19 @@
     transform: translateY(0);
     transition: all 3s ease;
 }
+@media screen and (max-width:500px){
+    .heading h1{
+        font-size: 20px;
+    }
+    .username h1{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .heading{
+        flex-direction: column;
+    }
+    .heading p{
+        position: relative;
+        align-self: flex-end;
+    }
+}
